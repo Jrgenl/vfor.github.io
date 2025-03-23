@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forsikringsrådgiver</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Forsikringsrådgiver</h1>
+            <p>Få personlige anbefalinger om syke- og uføreforsikringer basert på din situasjon</p>
+        </header>
+
+        <main>
+            <div class="calculator">
+                <div class="input-section">
+                    <h2>Din informasjon</h2>
+                    <div class="form-group">
+                        <label for="income">Årsinntekt (før skatt)</label>
+                        <input type="number" id="income" min="0" step="1000" value="600000">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Alder</label>
+                        <input type="number" id="age" min="18" max="70" value="40">
+                    </div>
+                    <div class="form-group">
+                        <label for="employment-percentage">Stillingsprosent</label>
+                        <input type="number" id="employment-percentage" min="1" max="100" value="100">
+                    </div>
+
+                    <button id="calculate-btn" class="btn">Få anbefalinger</button>
+                </div>
+
+                <div class="results-section">
+                    <h2>Dine anbefalinger</h2>
+                    <div class="results-container">
+                        <div class="result-summary">
+                            <h3>Din situasjon</h3>
+                            <div class="summary-item">
+                                <span>Månedsinntekt:</span>
+                                <span id="current-monthly-income">0 kr</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>NAV-ytelse ved sykdom:</span>
+                                <span id="nav-sickness-payment">0 kr</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>NAV-ytelse ved uførhet:</span>
+                                <span id="nav-disability-payment">0 kr</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Potensielt inntektstap:</span>
+                                <span id="income-gap">0 kr</span>
+                            </div>
+                        </div>
+
+                        <div class="recommendations">
+                            <h3>Anbefalte forsikringer</h3>
+                            <div id="recommendations-container">
+                                <!-- Recommendations will be inserted here -->
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <h3>Inntektsoversikt</h3>
+                            <div class="chart">
+                                <div class="chart-bar">
+                                    <div class="bar-label">Nåværende inntekt</div>
+                                    <div class="bar-container">
+                                        <div id="current-income-bar" class="bar" style="height: 100%"></div>
+                                    </div>
+                                    <div class="bar-value" id="current-income-value">0 kr</div>
+                                </div>
+                                <div class="chart-bar">
+                                    <div class="bar-label">Ved sykdom</div>
+                                    <div class="bar-container">
+                                        <div id="nav-sickness-bar" class="bar nav-bar"></div>
+                                        <div id="gap-sickness-bar" class="bar gap-bar"></div>
+                                    </div>
+                                    <div class="bar-value" id="sickness-value">0 kr</div>
+                                </div>
+                                <div class="chart-bar">
+                                    <div class="bar-label">Ved uførhet</div>
+                                    <div class="bar-container">
+                                        <div id="nav-disability-bar" class="bar nav-bar"></div>
+                                        <div id="gap-disability-bar" class="bar gap-bar"></div>
+                                    </div>
+                                    <div class="bar-value" id="disability-value">0 kr</div>
+                                </div>
+                            </div>
+                            <div class="chart-legend">
+                                <div class="legend-item">
+                                    <div class="legend-color nav-color"></div>
+                                    <div class="legend-label">NAV</div>
+                                </div>
+                                <div class="legend-item">
+                                    <div class="legend-color gap-color"></div>
+                                    <div class="legend-label">Inntektstap</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Denne rådgiveren er kun ment som et veiledningsverktøy. Faktiske forsikringsbehov kan variere.</p>
+            <p>Basert på NAV-ytelser og Gjensidiges forsikringsprodukter per mars 2025.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
